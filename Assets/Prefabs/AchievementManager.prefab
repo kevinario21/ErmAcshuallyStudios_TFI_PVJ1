@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335674e73cd51d94a93e263aee1f36e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementManager
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: f3a158624bd8e1048a8b027e90a59344, type: 2}
+  - {fileID: 11400000, guid: a915fb50798dd27419877e08ac6f0ba6, type: 2}
+  - {fileID: 11400000, guid: 0faa79a9f00972345a9acf9ed6bea49f, type: 2}
+  - {fileID: 11400000, guid: 80c4eda051533ec49a29908350be9f9d, type: 2}
+  - {fileID: 11400000, guid: 12ffb13b1ed36c845b9c6543862e8e3a, type: 2}
+  - {fileID: 11400000, guid: c6a00f777f0b41f4b9582be7035cf6d9, type: 2}
+  - {fileID: 11400000, guid: ad1891e3f1972174fa8b6e6ebb59209a, type: 2}
