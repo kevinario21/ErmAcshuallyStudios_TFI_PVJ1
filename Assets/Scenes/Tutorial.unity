@@ -240,7 +240,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7723199107c5e6e4abbb671e7ab1f053, type: 3}
---- !u!1 &140020016
+--- !u!1 &146467436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,8 +248,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 140020018}
-  - component: {fileID: 140020017}
+  - component: {fileID: 146467438}
+  - component: {fileID: 146467437}
   m_Layer: 0
   m_Name: AchievementTester
   m_TagString: Untagged
@@ -257,28 +257,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &140020017
+--- !u!114 &146467437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140020016}
+  m_GameObject: {fileID: 146467436}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8af6d70a18fa64aa654e647bcbd28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementTester
---- !u!4 &140020018
+--- !u!4 &146467438
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140020016}
+  m_GameObject: {fileID: 146467436}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 359.97186, y: 191.01924, z: 0}
+  m_LocalPosition: {x: 250.7638, y: 200.8895, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -826,4 +826,4 @@ SceneRoots:
   - {fileID: 2039297394}
   - {fileID: 700056175}
   - {fileID: 698917953}
-  - {fileID: 140020018}
+  - {fileID: 146467438}

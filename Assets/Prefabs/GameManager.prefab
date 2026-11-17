@@ -47,7 +47,7 @@ MonoBehaviour:
   mainMenuScene: MenuPrincipal
   victoryScene: Victory
   defeatScene: Defeat
-  startScene: Nivel1
+  startScene: Tutorial
   levelScenes:
   - Tutorial
   - Nivel1

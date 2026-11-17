@@ -1138,6 +1138,7 @@ MonoBehaviour:
   mainPanel: {fileID: 653034702}
   optionsPanel: {fileID: 1869656680}
   achievementsPanel: {fileID: 381677410}
+  quitButton: {fileID: 303382637}
 --- !u!4 &674889625
 Transform:
   m_ObjectHideFlags: 0

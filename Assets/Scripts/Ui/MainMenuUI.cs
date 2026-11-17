@@ -5,8 +5,17 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject achievementsPanel;
+    [SerializeField] private GameObject quitButton; // NUEVO
 
-    private void Start() => ShowMain();
+    private void Start()
+    {
+        ShowMain();
+
+#if UNITY_WEBGL
+        // En el navegador Application.Quit() no hace nada, así que ocultamos el botón
+        if (quitButton != null) quitButton.SetActive(false);
+#endif
+    }
 
     public void ShowMain() => Show(mainPanel);
     public void ShowOptions() => Show(optionsPanel);
