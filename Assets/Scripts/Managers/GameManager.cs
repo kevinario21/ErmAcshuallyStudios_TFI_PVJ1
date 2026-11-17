@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameEvents.OnTutorialCompleted += HandleTutorialCompleted;
         SceneManager.sceneLoaded += HandleSceneLoaded;
         GameEvents.OnBossDefeated += HandleBossDefeated;
         GameEvents.OnPlayerDied += HandlePlayerDied;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        GameEvents.OnTutorialCompleted -= HandleTutorialCompleted;
         SceneManager.sceneLoaded -= HandleSceneLoaded;
         GameEvents.OnBossDefeated -= HandleBossDefeated;
         GameEvents.OnPlayerDied -= HandlePlayerDied;
@@ -110,4 +112,5 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandlePlayerDied() => LoadScene(defeatScene);
+    private void HandleTutorialCompleted() => StartCoroutine(AfterBossRoutine());
 }

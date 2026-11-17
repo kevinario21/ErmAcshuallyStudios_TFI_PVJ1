@@ -30,6 +30,7 @@ public class AchievementNotificationUI : MonoBehaviour
 
     private void Enqueue(AchievementData a)
     {
+        Debug.Log("POPUP recibió: " + a.title);
         queue.Enqueue(a);
         if (!showing) StartCoroutine(ShowRoutine());
     }

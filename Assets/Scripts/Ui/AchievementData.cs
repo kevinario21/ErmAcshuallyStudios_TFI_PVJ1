@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum AchievementCondition { BossDefeated, BossDefeatedNoDamage }
+public enum AchievementCondition { BossDefeated, BossDefeatedNoDamage, TutorialCompleted }
 
 [CreateAssetMenu(fileName = "Achievement_", menuName = "Game/Achievement")]
 public class AchievementData : ScriptableObject

@@ -22,6 +22,7 @@ public class AchievementManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameEvents.OnTutorialCompleted += HandleTutorialCompleted;
         GameEvents.OnBossDefeated += HandleBossDefeated;
         GameEvents.OnPlayerDamaged += HandleDamage;
         SceneManager.sceneLoaded += (s, m) => damageTakenThisLevel = false;
@@ -29,9 +30,19 @@ public class AchievementManager : MonoBehaviour
 
     private void OnDisable()
     {
+        GameEvents.OnTutorialCompleted -= HandleTutorialCompleted;
         GameEvents.OnBossDefeated -= HandleBossDefeated;
         GameEvents.OnPlayerDamaged -= HandleDamage;
     }
+
+    private void HandleTutorialCompleted()
+{
+    foreach (var a in achievements)
+    {
+        if (a.condition == AchievementCondition.TutorialCompleted && !IsUnlocked(a))
+            Unlock(a);
+    }
+}
 
     private void HandleDamage() => damageTakenThisLevel = true;
 
@@ -49,6 +60,7 @@ public class AchievementManager : MonoBehaviour
 
     private void Unlock(AchievementData a)
     {
+        Debug.Log("LOGRO DESBLOQUEADO: " + a.title);
         PlayerPrefs.SetInt("ach_" + a.id, 1);
         PlayerPrefs.Save();
         OnAchievementUnlocked?.Invoke(a);

@@ -7,6 +7,8 @@ using System;
 /// </summary>
 public static class GameEvents
 {
+    public static event Action OnTutorialCompleted;
+    public static void RaiseTutorialCompleted() => OnTutorialCompleted?.Invoke();
     public static event Action<string> OnBossDefeated;
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDied;
