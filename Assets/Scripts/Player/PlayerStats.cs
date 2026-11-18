@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStatsTest : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private float speedPlatform = 8f;
     [SerializeField] private int maxHealth = 5;
