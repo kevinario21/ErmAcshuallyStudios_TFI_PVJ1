@@ -3,28 +3,29 @@ using UnityEngine;
 public class ZonaTutorial : MonoBehaviour
 {
     [Header("Conexiones")]
-    [SerializeField] private Rana rana; // Referencia a nuestra rana
-    [SerializeField] private Rana.TipoTutorial temaDeEstaZona; // Qué tema activa esta zona
+    [SerializeField] private Rana rana;
+    [SerializeField] private TipoTutorial temaDeEstaZona;
+
+    [Header("Posicion rana")]
+    [SerializeField] private Transform puntoAparicionRana;
 
     private void OnTriggerEnter2D(Collider2D otroObjeto)
     {
         if (otroObjeto.CompareTag("Player"))
         {
-            // Le avisamos a la rana qué tema tiene que explicar
-            if (rana != null)
+            if (rana != null && puntoAparicionRana != null)
             {
-                rana.MostrarMensaje(temaDeEstaZona);
+                rana.InvocarRana(temaDeEstaZona, puntoAparicionRana);
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D otroObjeto)
     {
         if (otroObjeto.CompareTag("Player"))
         {
             if (rana != null)
             {
-                rana.OcultarMensaje();
+                rana.ProgramarOcultarRana();
             }
         }
     }
