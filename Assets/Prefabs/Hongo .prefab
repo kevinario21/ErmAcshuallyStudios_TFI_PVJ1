@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7328555455391422915}
   - component: {fileID: 5834409607288394085}
   - component: {fileID: 8317070118791737818}
+  - component: {fileID: 8976179215849260064}
   m_Layer: 0
   m_Name: 'Hongo '
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8216130135233482436}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.33048, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -190,3 +191,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.2, y: 2.8939314}
   m_EdgeRadius: 0
+--- !u!114 &8976179215849260064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216130135233482436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c332c18eac0c3424d9f8faee32c0777f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HongoPatrulla
+  puntoA: {fileID: 0}
+  puntoB: {fileID: 0}
+  velocidad: 1
+  dano: 1
+  cooldownDano: 1
