@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jump;
     private bool canMove = true;
     private float wallJumpLockTimer;
-    private float initialWallCheckX; // Guarda la distancia original del wallCheck
+    private float initialWallCheckX;
 
     public void SetMovementState(bool state) => canMove = state;
 
@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         if (playerStats != null)
             playerStats.Checkpoint = transform.position;
 
-        // Guardamos la posición X inicial del wallCheck respecto al centro del jugador
         if (wallCheck != null)
         {
             initialWallCheckX = Mathf.Abs(wallCheck.localPosition.x);
@@ -54,15 +53,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameManager.Instance.CurrentState == GameState.Playing)
         {
-            horizontalInput = Input.GetAxisRaw("Horizontal");
-            verticalInput = Input.GetAxisRaw("Vertical"); // W / S o Flechas para trepar
+            horizontalInput = canMove ? Input.GetAxisRaw("Horizontal") : 0f;
+            verticalInput = canMove ? Input.GetAxisRaw("Vertical") : 0f;
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-            // Actualiza la posición del wallCheck según hacia dónde mira el sprite (¡Igual que el firePoint!)
             UpdateWallCheckPosition();
-
-            // Detección de paredes
             DetectWalls();
 
             if (wallJumpLockTimer > 0f)
@@ -70,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
                 wallJumpLockTimer -= Time.deltaTime;
             }
 
-            if (Input.GetButtonDown("Jump"))
+            if (canMove && Input.GetButtonDown("Jump"))
             {
                 if (isGrounded)
                 {
@@ -99,15 +95,15 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                float targetVerticalVelocity = -wallSlideSpeed; // Descenso lento por defecto
+                float targetVerticalVelocity = -wallSlideSpeed;
 
                 if (verticalInput > 0f)
                 {
-                    targetVerticalVelocity = wallClimbSpeed; // Trepar con la W
+                    targetVerticalVelocity = wallClimbSpeed;
                 }
                 else if (verticalInput < 0f)
                 {
-                    targetVerticalVelocity = -wallClimbSpeed * 1.5f; // Caída rápida con la S
+                    targetVerticalVelocity = -wallClimbSpeed * 1.5f;
                 }
 
                 rb.linearVelocity = new Vector2(0f, targetVerticalVelocity);
@@ -121,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (wallCheck == null || spriteRenderer == null) return;
 
-        // Si el sprite está volteado (flipX = true), el wallCheck pasa a la izquierda (-initialWallCheckX)
         float targetX = spriteRenderer.flipX ? -initialWallCheckX : initialWallCheckX;
         wallCheck.localPosition = new Vector3(targetX, wallCheck.localPosition.y, wallCheck.localPosition.z);
     }
@@ -135,7 +130,6 @@ public class PlayerMovement : MonoBehaviour
         if (hit != null && !isGrounded)
         {
             isTouchingWall = true;
-            // Definimos la dirección según dónde esté colocado el wallCheck en ese momento
             wallDirection = wallCheck.localPosition.x > 0 ? 1 : -1;
         }
         else
@@ -162,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleWallSlideAndClimb()
     {
-        // Se activa si está en el aire, tocando la pared y empujando el control/tecla hacia ella
         if (!isGrounded && isTouchingWall && Mathf.Abs(horizontalInput) > 0.1f)
         {
             isWallSliding = true;
@@ -186,6 +179,9 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimator()
     {
         if (animator == null) return;
+
+        bool isWalking = Mathf.Abs(horizontalInput) > 0.01f && isGrounded && !isWallSliding;
+        animator.SetBool("caminar", isWalking);
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsWallSliding", isWallSliding);
