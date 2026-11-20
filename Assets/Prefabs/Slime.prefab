@@ -209,6 +209,6 @@ MonoBehaviour:
   velPersecucion: 3
   rangoVision: 6
   rangoVisionAgachado: 2
-  rangoAtaque: 1
+  rangoAtaque: 1.5
   cooldownAtaque: 1.5
   dano: 1
