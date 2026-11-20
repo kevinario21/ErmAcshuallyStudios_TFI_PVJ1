@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BossNivel4
   m_EditorClassIdentifier: Assembly-CSharp::AchievementData
   id: boss_nivel4
-  title: Derrota al jefe4
-  description: derrotaste al jefe 4
+  title: Derrota al Rey Slime
+  description: "\xA1Derrotaste al Rey Slime!"
   icon: {fileID: -165430948779918170, guid: e5b3d3606b9023c4ca2628967d08af43, type: 3}
   condition: 0
   bossId: boss_nivel4
