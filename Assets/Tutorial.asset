@@ -15,6 +15,6 @@ MonoBehaviour:
   id: Tutorial
   title: Pasaste Tutorial
   description: Te pasaste el Tutorial!
-  icon: {fileID: 0}
+  icon: {fileID: 1969889908171214419, guid: 94854338311de354687fa93ea888d151, type: 3}
   condition: 2
   bossId: Tutorial

@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-/// Agregar a cualquier Button para que suene el clic.
-[RequireComponent(typeof(Button))]
-public class ButtonSFX : MonoBehaviour
+public class ButtonSound : MonoBehaviour, IPointerDownHandler
 {
-    private void Awake() => GetComponent<Button>().onClick.AddListener(() =>
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (AudioManager.Instance != null) AudioManager.Instance.PlayButtonClick();
-    });
+        AudioManager.Instance.PlayButtonClick();
+    }
 }
