@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1154467766283347529}
   - component: {fileID: 5783163031192184222}
   - component: {fileID: -6741903013868532840}
+  - component: {fileID: -2663637889615827516}
   m_Layer: 0
   m_Name: Coin_0
   m_TagString: Untagged
@@ -129,3 +130,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.175
+--- !u!114 &-2663637889615827516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061167454121866239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96180bf35a775d4eac1a13ac443234e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinPickup
+  scoreData: {fileID: 11400000, guid: 3eb3b77360389564abf9ff76831eccd6, type: 2}
+  pointsToAdd: 10
+  playerTag: Player
