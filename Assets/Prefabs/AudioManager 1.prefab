@@ -245,11 +245,11 @@ MonoBehaviour:
   sfxSource: {fileID: 8602969438731267964}
   menuMusic: {fileID: 8300000, guid: a4a80cde83e76714e94d460c2940d03d, type: 3}
   gameplayMusic: {fileID: 8300000, guid: e6a80bd97a3af3342a6b8b1f1d36bfe4, type: 3}
-  pauseMusic: {fileID: 8300000, guid: a4a80cde83e76714e94d460c2940d03d, type: 3}
+  pauseMusic: {fileID: 8300000, guid: 912d59d19483d9c4ba9c63e25448d45c, type: 3}
   bossMusic: {fileID: 8300000, guid: c12cd6c63280fc949857c5b0d5567db3, type: 3}
   victoryMusic: {fileID: 8300000, guid: 57c38ce84a8350f47a80d082e681a6e0, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 9bab4626ed0b98b4697c047ec19b50f4, type: 3}
-  buttonClick: {fileID: 8300000, guid: 7726ee11be76c6a4cbb76a98a9026cc5, type: 3}
+  buttonClick: {fileID: 8300000, guid: 6907cd02b9dfaca46abfe25be3979432, type: 3}
   achievementClip: {fileID: 8300000, guid: f36f92ade379ca4428d4299f6e412409, type: 3}
   jumpClip: {fileID: 8300000, guid: ea5b03595a0517346a271850929a9f53, type: 3}
   shootClip: {fileID: 8300000, guid: 44cc31071989dd241b5ff417a330663d, type: 3}
