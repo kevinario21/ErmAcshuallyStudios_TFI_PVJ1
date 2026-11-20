@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class AudioManager : MonoBehaviour
     [Header("Música por estado")]
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip gameplayMusic;
+    [SerializeField] private AudioClip pauseMusic;
+    [SerializeField] private AudioClip bossMusic;
     [SerializeField] private AudioClip victoryMusic;
     [SerializeField] private AudioClip gameOverMusic;
 
@@ -22,39 +25,107 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip buttonClick;
     [SerializeField] private AudioClip achievementClip;
 
+    [Header("SFX de juego")]
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip shootClip;
+    [SerializeField] private AudioClip coinClip;
+    [SerializeField] private AudioClip enemyClip;
+    [SerializeField] private AudioClip powerUpClip;
+    [SerializeField] private AudioClip bossShootClip;
+
     public const string MasterParam = "MasterVol";
     public const string MusicParam = "MusicVol";
     public const string SFXParam = "SFXVol";
+
+    private AudioClip currentGameplayClip;
+    private float savedTime;
+    private GameState previousState;
+    private Scene pausedScene; // escena en la que se pausó
 
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        currentGameplayClip = gameplayMusic;
     }
 
-    private void OnEnable() => GameManager.OnGameStateChanged += HandleState;
-    private void OnDisable() => GameManager.OnGameStateChanged -= HandleState;
+    private void OnEnable()
+    {
+        if (Instance != this) return; // copia duplicada: no se suscribe
+        GameManager.OnGameStateChanged += HandleState;
+        AchievementManager.OnAchievementUnlocked += HandleAchievement;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameStateChanged -= HandleState;
+        AchievementManager.OnAchievementUnlocked -= HandleAchievement;
+    }
 
     private void Start()
     {
-        // Los parámetros del mixer se aplican en Start (en Awake a veces no se setean)
         ApplySaved(MasterParam);
         ApplySaved(MusicParam);
         ApplySaved(SFXParam);
         if (GameManager.Instance != null) HandleState(GameManager.Instance.CurrentState);
     }
 
+    private void HandleAchievement(AchievementData a) => PlayAchievement();
+
     private void HandleState(GameState state)
     {
         switch (state)
         {
-            case GameState.Start: PlayMusic(menuMusic); break;
-            case GameState.Playing: PlayMusic(gameplayMusic); break; // al volver de pausa no reinicia (mismo clip)
-            case GameState.Victory: PlayMusic(victoryMusic, false); break;
-            case GameState.GameOver: PlayMusic(gameOverMusic, false); break;
-            case GameState.Paused: break; // la música sigue sonando
+            case GameState.Start:
+                PlayMusic(menuMusic);
+                break;
+
+            case GameState.Playing:
+            {
+                // Es reanudar solo si venimos de pausa Y la escena NO se recargó
+                bool resuming = previousState == GameState.Paused &&
+                                SceneManager.GetActiveScene() == pausedScene;
+                if (resuming)
+                {
+                    ResumeGameplayMusic();
+                }
+                else
+                {
+                    // Nivel nuevo o reinicio: música normal desde cero
+                    currentGameplayClip = gameplayMusic;
+                    musicSource.Stop(); // fuerza reinicio aunque sea el mismo clip
+                    PlayMusic(currentGameplayClip);
+                }
+                break;
+            }
+
+            case GameState.Paused:
+                pausedScene = SceneManager.GetActiveScene();
+                if (musicSource.clip == currentGameplayClip) savedTime = musicSource.time;
+                PlayMusic(pauseMusic);
+                break;
+
+            case GameState.Victory:
+                PlayMusic(victoryMusic, false);
+                break;
+
+            case GameState.GameOver:
+                PlayMusic(gameOverMusic, false);
+                break;
         }
+        previousState = state;
+    }
+
+    private void ResumeGameplayMusic()
+    {
+        if (currentGameplayClip == null) return;
+        // Si no hay música de pausa, la del nivel nunca se detuvo
+        if (musicSource.clip == currentGameplayClip && musicSource.isPlaying) return;
+        musicSource.clip = currentGameplayClip;
+        musicSource.loop = true;
+        musicSource.time = savedTime;
+        musicSource.Play();
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)
@@ -65,6 +136,13 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    // Llamar cuando aparece el jefe
+    public void PlayBossMusic()
+    {
+        currentGameplayClip = bossMusic;
+        PlayMusic(bossMusic);
+    }
+
     public void PlaySFX(AudioClip clip, float volume = 1f)
     {
         if (clip != null) sfxSource.PlayOneShot(clip, volume);
@@ -72,6 +150,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayButtonClick() => PlaySFX(buttonClick);
     public void PlayAchievement() => PlaySFX(achievementClip);
+    public void PlayJump()        => PlaySFX(jumpClip);
+    public void PlayShoot()       => PlaySFX(shootClip);
+    public void PlayCoin()        => PlaySFX(coinClip);
+    public void PlayEnemy()       => PlaySFX(enemyClip);
+    public void PlayPowerUp()     => PlaySFX(powerUpClip);
+    public void PlayBossShoot()   => PlaySFX(bossShootClip);
 
     // ---------- Volumen (slider 0.0001 - 1 -> decibeles) ----------
     public void SetVolume(string param, float linear)
