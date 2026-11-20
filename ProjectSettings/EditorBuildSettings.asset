@@ -8,5 +8,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuPrincipal.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 231e60f21a137dc43a45e80cf7da9d65
+  - enabled: 1
+    path: Assets/Scenes/Nivel1.unity
+    guid: 1abaf8362047ef045886c11dc88bc5ac
+  - enabled: 1
+    path: Assets/Scenes/Nivel2.unity
+    guid: 8f1a881fe61203543bae70fe5fb6b48b
+  - enabled: 1
+    path: Assets/Scenes/Nivel3.unity
+    guid: ae73ebc1e26ab424685e90f36dca1ca9
+  - enabled: 1
+    path: Assets/Scenes/Nivel4.unity
+    guid: 1b5d33dc7374ed443948d4b1295b88a3
+  - enabled: 1
+    path: Assets/Scenes/Nivel5.unity
+    guid: d4f9739a0cc89374ebf3b224ada621c2
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 612d1bce3df5b544c8991aee37ad7bcc
+  - enabled: 1
+    path: Assets/Scenes/Defeat.unity
+    guid: 5b4f2f030d9855641ae870ae20c90c4c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
