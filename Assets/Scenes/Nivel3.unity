@@ -26580,30 +26580,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1218294140704221924, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941081937047921830, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905416214056769795, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4667055393528828548, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7766315121178422037, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: wallLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950048155012904176, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.43
