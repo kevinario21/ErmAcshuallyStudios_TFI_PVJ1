@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class Projectile : MonoBehaviour
+{
+    private float speed;
+    private float direction = 1f;
+    private float lifeTime = 3f;
+
+    public void SetDirection(float dir, float moveSpeed)
+    {
+        direction = dir;
+        speed = moveSpeed;
+        Destroy(gameObject, lifeTime);
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector3.right * direction * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Si choca con el suelo, paredes o un enemigo, se destruye
+        if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+}
