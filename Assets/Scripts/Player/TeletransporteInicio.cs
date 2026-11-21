@@ -18,10 +18,10 @@ public class TeletransporteInicio : MonoBehaviour
             return;
         }
 
-        // Movemos al jugador al punto de inicio
+      
         other.transform.position = puntoInicio.position;
 
-        // Reiniciamos la velocidad para que no siga cayendo con inercia al reaparecer
+
         if (reiniciarVelocidad)
         {
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();

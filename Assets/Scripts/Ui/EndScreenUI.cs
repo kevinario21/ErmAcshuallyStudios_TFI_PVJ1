@@ -1,6 +1,5 @@
 using UnityEngine;
 
-/// Usar en las escenas Victory y Defeat.
 public class EndScreenUI : MonoBehaviour
 {
     public void OnRetry() => GameManager.Instance.RetryLastLevel(); // en Defeat

@@ -84,13 +84,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Al tocar el suelo, recupera la energía para volver a escalar
+       
         if (isGrounded && !canClimb)
         {
             canClimb = true;
         }
 
-        // Condición para escalar
+       
         bool quiereEscalar = canMove && canClimb && isTouchingWall && verticalInput > 0f;
 
         if (quiereEscalar && !isClimbing)
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             DetenerEscalada();
         }
 
-        // Solo salta si está en el suelo, no está escalando y ya pasó el cooldown del salto anterior
+        
         if (canMove && isGrounded && !isClimbing && Time.time >= nextJumpTime && (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space)))
         {
             jump = true;

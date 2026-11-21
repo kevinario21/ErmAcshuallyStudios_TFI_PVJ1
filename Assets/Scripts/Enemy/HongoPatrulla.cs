@@ -34,7 +34,7 @@ public class HongoPatrulla : MonoBehaviour
             destino = (destino == puntoA) ? puntoB : puntoA;
     }
 
-    // Este es el método que debe llamar el script de ataque del Player
+ 
     public void RecibirDano(int cantidad)
     {
         vidaActual -= cantidad;
@@ -47,7 +47,7 @@ public class HongoPatrulla : MonoBehaviour
 
     private void Morir()
     {
-        // Aquí puedes agregar partículas, sonido o suma de puntos antes de destruirlo
+       
         Destroy(gameObject);
     }
 
@@ -55,7 +55,7 @@ public class HongoPatrulla : MonoBehaviour
     {
         if (c.gameObject.CompareTag("Player") && Time.time >= proximoDano)
         {
-            // Conectado directamente al PlayerStats de tu proyecto
+            
             PlayerStats stats = c.gameObject.GetComponent<PlayerStats>();
             if (stats != null)
             {

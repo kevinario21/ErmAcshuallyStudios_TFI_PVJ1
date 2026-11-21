@@ -2,14 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/// <summary>
-/// Muestra la vida y vidas del jugador en pantalla.
-/// Colocar en un Canvas en la escena. Asignar en el Inspector:
-///   - healthBar (Slider) — barra de vida
-///   - healthText (TextMeshProUGUI o Text) — "3 / 5"
-///   - livesText (TextMeshProUGUI) — "Vidas: 2"
-///   - iconos de corazón (opcionales)
-/// </summary>
+
 public class PlayerHealthUI : MonoBehaviour
 {
     [Header("Barra de vida (opcional)")]

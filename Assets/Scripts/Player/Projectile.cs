@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Daño a enemigo con EnemyHealth
+       
         EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        // Si choca con el suelo, paredes o un enemigo sin EnemyHealth, se destruye
+        
         if (collision.CompareTag("Ground") || collision.CompareTag("Enemy") || collision.CompareTag("Wall"))
         {
             Destroy(gameObject);

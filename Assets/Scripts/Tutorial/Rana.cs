@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using TMPro; // Necesario para TextMeshPro
+using TMPro; 
 
 public enum TipoTutorial
 {
@@ -21,9 +21,9 @@ public class Rana : MonoBehaviour
     [SerializeField] private float tiempoMinimoVisible = 3f;
 
     [Header("Efectos Mágicos (3 VFX)")]
-    [SerializeField] private GameObject vfxAparicionPrefab;     // 1. Se ejecuta 1 vez al aparecer
-    [SerializeField] private ParticleSystem particulasActiva;   // 2. Hijo de la rana (Loop mientras está activa)
-    [SerializeField] private GameObject vfxDesaparicionPrefab;  // 3. Se ejecuta al desaparecer (sigue corriendo tras desactivar la rana)
+    [SerializeField] private GameObject vfxAparicionPrefab;     
+    [SerializeField] private ParticleSystem particulasActiva;   
+    [SerializeField] private GameObject vfxDesaparicionPrefab;  
     [SerializeField] private float duracionAutoDestruirVFX = 2.5f;
 
     private Coroutine corrutinaDesaparicion;
@@ -44,7 +44,7 @@ public class Rana : MonoBehaviour
             corrutinaDesaparicion = null;
         }
 
-        // Si ya estaba visible explicando exactamente este mismo tema, no reiniciamos el texto ni las partículas
+        
         if (gameObject.activeInHierarchy && temaActual == tema)
         {
             return;
@@ -54,14 +54,14 @@ public class Rana : MonoBehaviour
         transform.position = puntoAparicion.position;
         gameObject.SetActive(true);
 
-        // 1. VFX de Aparición (una sola vez en el punto donde aparece)
+       
         if (vfxAparicionPrefab != null)
         {
             GameObject vfxIn = Instantiate(vfxAparicionPrefab, transform.position, Quaternion.identity);
             Destroy(vfxIn, duracionAutoDestruirVFX);
         }
 
-        // 2. VFX Activo (se mantiene encendido en loop mientras la rana está visible)
+       
         if (particulasActiva != null)
         {
             particulasActiva.gameObject.SetActive(true);
@@ -88,20 +88,20 @@ public class Rana : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempoMinimoVisible);
 
-        // Apagamos el VFX continuo
+       
         if (particulasActiva != null)
         {
             particulasActiva.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
 
-        // 3. VFX de Desaparición (se instancia suelto en la escena antes de desactivar a la rana)
+        
         if (vfxDesaparicionPrefab != null)
         {
             GameObject vfxOut = Instantiate(vfxDesaparicionPrefab, transform.position, Quaternion.identity);
             Destroy(vfxOut, duracionAutoDestruirVFX);
         }
 
-        // La rana desaparece inmediatamente mientras el 3er VFX termina su animación en el aire
+        
         gameObject.SetActive(false);
         corrutinaDesaparicion = null;
     }

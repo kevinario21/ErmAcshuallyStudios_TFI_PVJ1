@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delayAfterBoss);
         int i = Array.IndexOf(levelScenes, SceneManager.GetActiveScene().name);
-        // Siguiente nivel de la lista; si era el último (o no está en la lista) -> Victory
         if (i >= 0 && i + 1 < levelScenes.Length) LoadScene(levelScenes[i + 1]);
         else LoadScene(victoryScene);
     }

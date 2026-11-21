@@ -1,10 +1,6 @@
 using System;
 
-/// <summary>
-/// Bus de eventos estáticos compartido por todo el equipo (Patrón Observador).
-/// El que programa al jefe llama GameEvents.RaiseBossDefeated("boss_level1").
-/// El que programa al jugador llama GameEvents.RaisePlayerDamaged() al recibir daño.
-/// </summary>
+
 public static class GameEvents
 {
     public static event Action OnTutorialCompleted;

@@ -25,9 +25,8 @@ public class PlayerStats : MonoBehaviour
     public int CurrentLives => currentLives;
     public Vector3 Checkpoint { get; set; }
 
-    // Eventos para que la UI de vida los escuche
-    public static event Action<int, int> OnHealthChanged;  // (currentHP, maxHP)
-    public static event Action<int> OnLivesChanged;         // (livesLeft)
+    public static event Action<int, int> OnHealthChanged;  
+    public static event Action<int> OnLivesChanged;         
 
     private void Start()
     {
@@ -55,7 +54,7 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
         GameEvents.RaisePlayerDamaged();
-        // Only damage that actually removes health invalidates the achievement.
+ 
         if (fromBoss) GameEvents.RaisePlayerDamagedByBoss();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
@@ -72,26 +71,26 @@ public class PlayerStats : MonoBehaviour
 
         if (currentLives <= 0)
         {
-            // Sin vidas: ir a pantalla de derrota
+            
             GameEvents.RaisePlayerDied();
         }
         else
         {
-            // Respawnear en checkpoint con vida completa
+            
             currentHealth = maxHealth;
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
             transform.position = Checkpoint;
             var body = GetComponent<Rigidbody2D>();
             if (body != null) body.linearVelocity = Vector2.zero;
 
-            // Pequeña invulnerabilidad (opcional, via animación si existe)
+            
             var anim = GetComponent<Animator>();
             if (anim != null && HasAnimParam(anim, "dano"))
                 anim.SetTrigger("dano");
         }
     }
 
-    // Recuperar vida (PowerUp, etc.)
+
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);

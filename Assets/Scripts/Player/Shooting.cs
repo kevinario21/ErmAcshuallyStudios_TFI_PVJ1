@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
     {
         if (firePoint == null || spriteRenderer == null) return;
 
-        // Volteamos la posición X del punto de disparo según hacia dónde mire el sprite
+       
         float targetX = spriteRenderer.flipX ? -initialFirePointX : initialFirePointX;
         firePoint.localPosition = new Vector3(targetX, firePoint.localPosition.y, firePoint.localPosition.z);
     }
