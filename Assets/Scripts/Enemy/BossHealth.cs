@@ -26,7 +26,7 @@ public class BossHealth : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
 
-    public static event Action<string> OnBossDefeated;
+  
     public event Action<int, int> OnHealthChanged;
     public event Action OnDeath;
 
@@ -74,8 +74,7 @@ public class BossHealth : MonoBehaviour
 
         if (isFinalBoss)    
         {
-            OnBossDefeated?.Invoke(bossId);      
-            GameEvents.RaiseBossDefeated(bossId); 
+            GameEvents.RaiseBossDefeated(bossId);
         }
 
         Destroy(gameObject, deathDelay);
