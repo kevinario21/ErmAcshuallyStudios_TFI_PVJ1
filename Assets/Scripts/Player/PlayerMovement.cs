@@ -81,10 +81,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        jump = false;
-        isGrounded = false;
-        OnJump?.Invoke();
+    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    jump = false;
+    isGrounded = false;
+    OnJump?.Invoke();
+    AudioManager.Instance?.PlayJump();
     }
 
     private void OnDrawGizmosSelected()
