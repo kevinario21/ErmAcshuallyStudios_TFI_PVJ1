@@ -18,6 +18,7 @@ public class CoinPickup : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             collected = true;
+            AudioManager.Instance?.PlayCoin();
 
             if (scoreData != null)
             {

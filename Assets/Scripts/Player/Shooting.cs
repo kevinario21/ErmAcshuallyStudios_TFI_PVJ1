@@ -49,6 +49,7 @@ public class Shooting : MonoBehaviour
         if (projectilePrefab == null || firePoint == null) return;
 
         GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        AudioManager.Instance?.PlayShoot();
 
         Projectile projScript = bullet.GetComponent<Projectile>();
         if (projScript != null)

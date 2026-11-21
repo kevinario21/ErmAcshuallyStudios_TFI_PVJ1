@@ -243,17 +243,17 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 54dfa83e87a50d6499575a129c6d790c, type: 2}
   musicSource: {fileID: 8602969438731267964}
   sfxSource: {fileID: 8602969438731267964}
-  menuMusic: {fileID: 8300000, guid: a4a80cde83e76714e94d460c2940d03d, type: 3}
-  gameplayMusic: {fileID: 8300000, guid: e6a80bd97a3af3342a6b8b1f1d36bfe4, type: 3}
-  pauseMusic: {fileID: 8300000, guid: 912d59d19483d9c4ba9c63e25448d45c, type: 3}
-  bossMusic: {fileID: 8300000, guid: c12cd6c63280fc949857c5b0d5567db3, type: 3}
-  victoryMusic: {fileID: 8300000, guid: 57c38ce84a8350f47a80d082e681a6e0, type: 3}
-  gameOverMusic: {fileID: 8300000, guid: 9bab4626ed0b98b4697c047ec19b50f4, type: 3}
+  menuMusic: {fileID: 8300000, guid: 4adb5b5fadc7e024bb9f55f95879c877, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 2401686a6a3f5cb41adcff13ef349e0d, type: 3}
+  pauseMusic: {fileID: 8300000, guid: 7dbeeb78af824f84e896f389f9d04e31, type: 3}
+  bossMusic: {fileID: 8300000, guid: 3caa3d18a7922d54eba688c8c5f71429, type: 3}
+  victoryMusic: {fileID: 8300000, guid: 59c6c183d93dda74d9b018cb6caba714, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 3c34bef4d11a59541bef063b78dac8d4, type: 3}
   buttonClick: {fileID: 8300000, guid: 6907cd02b9dfaca46abfe25be3979432, type: 3}
-  achievementClip: {fileID: 8300000, guid: f36f92ade379ca4428d4299f6e412409, type: 3}
-  jumpClip: {fileID: 8300000, guid: ea5b03595a0517346a271850929a9f53, type: 3}
-  shootClip: {fileID: 8300000, guid: 44cc31071989dd241b5ff417a330663d, type: 3}
-  coinClip: {fileID: 8300000, guid: f36f92ade379ca4428d4299f6e412409, type: 3}
-  enemyClip: {fileID: 8300000, guid: 3603e3cbfc743594fb6338afa756f552, type: 3}
-  powerUpClip: {fileID: 8300000, guid: 219dc66a616713a49ae7d94333a1d6bc, type: 3}
-  bossShootClip: {fileID: 8300000, guid: ca9569027c74e9340b20ab25524add8c, type: 3}
+  achievementClip: {fileID: 8300000, guid: 7a00ae86bb315e2488c6c1caef6ab61c, type: 3}
+  jumpClip: {fileID: 8300000, guid: e9e7cfe08766fa7459e665982ab15911, type: 3}
+  shootClip: {fileID: 8300000, guid: 3fd1645a0bd153740a2380fb28c97acc, type: 3}
+  coinClip: {fileID: 8300000, guid: 7a00ae86bb315e2488c6c1caef6ab61c, type: 3}
+  enemyClip: {fileID: 8300000, guid: 9f8c4708b3e62b742a3fb3c5d39be2cf, type: 3}
+  powerUpClip: {fileID: 8300000, guid: d5a847e2542a1224eb69a90f11d54f2b, type: 3}
+  bossShootClip: {fileID: 8300000, guid: a3d0eb1e41e4cca48955c9bc0eb92936, type: 3}
