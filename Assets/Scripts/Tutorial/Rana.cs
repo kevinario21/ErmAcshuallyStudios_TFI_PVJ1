@@ -113,11 +113,11 @@ public class Rana : MonoBehaviour
         switch (tema)
         {
             case TipoTutorial.Saltar:
-                mensajeElegido = "¡Presiona ESPACIO para saltar!";
+                mensajeElegido = " Hola pequeña viajera, dejame guiarte ¡Presiona ESPACIO para saltar!";
                 break;
 
             case TipoTutorial.Agacharse:
-                mensajeElegido = "Mantén presionado ABAJO para agacharte.";
+                mensajeElegido = "Mantén presionado ABAJO para agacharte. Por aqui suelen aparecer slimes";
                 break;
 
             case TipoTutorial.Golpear:
@@ -129,7 +129,7 @@ public class Rana : MonoBehaviour
                 break;
 
             case TipoTutorial.Mapa:
-                mensajeElegido = "Presiona M para abrir el mapa.";
+                mensajeElegido = "El mapa se dividira en secciones subterraneas y externas, ¡ten cuidado!";
                 break;
         }
 
