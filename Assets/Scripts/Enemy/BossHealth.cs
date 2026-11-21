@@ -6,7 +6,14 @@ public class BossHealth : MonoBehaviour
 {
     [Header("Vida")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private string bossName = "Jefe";
+    [SerializeField] private string bossName = "Jefe";    
+
+    [Header("Identificación")]
+    [SerializeField] private string bossId = "boss_nivel3"; 
+    [SerializeField] private bool isFinalBoss = true;      
+
+    [Header("Daño recibido")]
+    [SerializeField] private int damagePerHit = 1;
 
     [Header("Feedback")]
     [SerializeField] private float flashTime = 0.1f;
@@ -14,7 +21,7 @@ public class BossHealth : MonoBehaviour
 
     private int currentHealth;
     private bool isDead;
-    private Color originalColor;
+    private Color originalColor = Color.white;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Rigidbody2D rb;
@@ -27,14 +34,16 @@ public class BossHealth : MonoBehaviour
     public float HealthPercent => (float)currentHealth / maxHealth;
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
+    public string BossName => bossName;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
         currentHealth = maxHealth;
-        originalColor = spriteRenderer.color;
+        if (spriteRenderer != null) originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(int amount)
@@ -51,18 +60,31 @@ public class BossHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        rb.linearVelocity = Vector2.zero;
-        if (animator != null) animator.SetTrigger("Die");
-        spriteRenderer.color = Color.gray;
 
-        OnDeath?.Invoke();
-        OnBossDefeated?.Invoke(bossName);
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        if (animator != null && animator.runtimeAnimatorController != null)
+            animator.SetTrigger("Die");
+        if (spriteRenderer != null) spriteRenderer.color = Color.gray;
+
+       
+        foreach (Collider2D col in GetComponents<Collider2D>())
+            col.enabled = false;
+
+        OnDeath?.Invoke(); 
+
+        if (isFinalBoss)    
+        {
+            OnBossDefeated?.Invoke(bossId);      
+            GameEvents.RaiseBossDefeated(bossId); 
+        }
 
         Destroy(gameObject, deathDelay);
     }
 
     private IEnumerator FlashRoutine()
     {
+        if (spriteRenderer == null) yield break;
+
         spriteRenderer.color = Color.white;
         yield return new WaitForSeconds(flashTime);
         if (!isDead) spriteRenderer.color = originalColor;
@@ -72,7 +94,7 @@ public class BossHealth : MonoBehaviour
     {
         if (other.CompareTag("PlayerAttack"))
         {
-            TakeDamage(1);
+            TakeDamage(damagePerHit);
         }
     }
 }
