@@ -20933,7 +20933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be8e5f409348b047bb4ba03884a6d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 5
+  maxHealth: 1
   bossName: Guardian
   bossId: boss_nivel3
   isFinalBoss: 0
@@ -25809,7 +25809,7 @@ GameObject:
   - component: {fileID: 1704008370}
   m_Layer: 0
   m_Name: JefeFinal
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25902,9 +25902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be8e5f409348b047bb4ba03884a6d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 5
+  maxHealth: 1
   bossName: Rey Slime
-  bossId: boss_nivel3
+  bossId: boss_nivel5
   isFinalBoss: 1
   damagePerHit: 1
   flashTime: 0.1
@@ -26582,11 +26582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.43
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_LocalPosition.z
