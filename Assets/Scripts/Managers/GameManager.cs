@@ -74,6 +74,13 @@ public class GameManager : MonoBehaviour
     }
 
     // ---------- Flujo de escenas ----------
+    public void LoadNextLevel()
+    {
+    int i = Array.IndexOf(levelScenes, SceneManager.GetActiveScene().name);
+    if (i >= 0 && i + 1 < levelScenes.Length) LoadScene(levelScenes[i + 1]);
+    else LoadScene(victoryScene);
+    }
+      
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1f;

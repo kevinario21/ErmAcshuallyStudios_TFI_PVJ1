@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
@@ -9,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
     private PlayerStats playerStats;
 
     private float horizontalInput;
@@ -17,35 +18,52 @@ public class PlayerMovement : MonoBehaviour
     private bool jump;
     private bool canMove = true;
 
+    public float HorizontalInput => horizontalInput;
+    public bool IsGrounded => isGrounded;
+    public bool IsWalking => canMove && Mathf.Abs(horizontalInput) > 0.01f && isGrounded;
+
+    public event Action OnJump;
+
     public void SetMovementState(bool state) => canMove = state;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         playerStats = GetComponent<PlayerStats>();
-        playerStats.Checkpoint = transform.position;
+
+        if (playerStats != null)
+            playerStats.Checkpoint = transform.position;
     }
 
     private void Update()
     {
-        if (GameManager.Instance.CurrentState == GameState.Playing)
-        {
-            horizontalInput = Input.GetAxisRaw("Horizontal");
-            if (Input.GetButtonDown("Jump") && isGrounded) jump = true;
+        if (GameManager.Instance != null && GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
+        horizontalInput = canMove ? Input.GetAxisRaw("Horizontal") : 0f;
+
+        if (groundCheck != null)
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-            UpdateAnimator();
+        if (canMove && isGrounded && (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space)))
+        {
+            jump = true;
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.CurrentState == GameState.Playing && canMove)
+        if (GameManager.Instance != null && GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
+        if (!canMove) return;
+
+        Move();
+
+        if (jump)
         {
-            Move();
-            if (jump) Jump();
+            Jump();
         }
     }
 
@@ -54,21 +72,20 @@ public class PlayerMovement : MonoBehaviour
         float speed = playerStats != null ? playerStats.SpeedPlatform : 8f;
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
 
-        if (horizontalInput > 0f) spriteRenderer.flipX = false;
-        else if (horizontalInput < 0f) spriteRenderer.flipX = true;
+        if (spriteRenderer != null)
+        {
+            if (horizontalInput > 0f) spriteRenderer.flipX = false;
+            else if (horizontalInput < 0f) spriteRenderer.flipX = true;
+        }
     }
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        jump = false;
-    }
-
-    private void UpdateAnimator()
-    {
-        if (animator == null) return;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-        animator.SetBool("IsGrounded", isGrounded);
+    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    jump = false;
+    isGrounded = false;
+    OnJump?.Invoke();
+    AudioManager.Instance?.PlayJump();
     }
 
     private void OnDrawGizmosSelected()
