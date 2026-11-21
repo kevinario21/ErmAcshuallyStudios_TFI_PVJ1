@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5834409607288394085}
   - component: {fileID: 8317070118791737818}
   - component: {fileID: 8976179215849260064}
+  - component: {fileID: 2089990144497228720}
   m_Layer: 0
   m_Name: 'Hongo '
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 8216130135233482436}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.33048, y: -1.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -22.46, y: -3.42, z: 0}
+  m_LocalScale: {x: 0.6829427, y: 0.6490927, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4062306377663210663, guid: 2322625e86340c947b9acb5b6b8325a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -179,7 +180,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.7530344}
+  m_Offset: {x: 0.10218561, y: 1.6090847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -189,7 +190,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.2, y: 2.8939314}
+  m_Size: {x: 1.9354143, y: 1.9453738}
   m_EdgeRadius: 0
 --- !u!114 &8976179215849260064
 MonoBehaviour:
@@ -206,5 +207,23 @@ MonoBehaviour:
   puntoA: {fileID: 0}
   puntoB: {fileID: 0}
   velocidad: 1
+  vidaMaxima: 3
   dano: 1
   cooldownDano: 1
+--- !u!114 &2089990144497228720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216130135233482436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 3
+  damagePerHit: 1
+  flashTime: 0.08
+  deathDelay: 0.4
+  bossId: 
