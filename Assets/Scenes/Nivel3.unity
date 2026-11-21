@@ -2589,7 +2589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2973bfb0f24bac248826a8e41a92769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  target: {fileID: 0}
+  target: {fileID: 1056018936}
   smoothSpeed: 5
   offset: {x: 0, y: 1, z: -10}
   minX: -1000
@@ -3689,7 +3689,7 @@ GameObject:
   - component: {fileID: 523133862}
   - component: {fileID: 523133861}
   - component: {fileID: 523133860}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3721,7 +3721,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6c50d9cefcc8c545bb7c25212e5ac80, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6180,7 +6180,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b6c50d9cefcc8c545bb7c25212e5ac80, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -22873,6 +22873,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!4 &1056018936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
+  m_PrefabInstance: {fileID: 1838537603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1094747735
 GameObject:
   m_ObjectHideFlags: 0
@@ -26577,19 +26582,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1218294140704221924, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1941081937047921830, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2905416214056769795, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4667055393528828548, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766315121178422037, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8950048155012904176, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110964567162764074, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: m_LocalPosition.x
