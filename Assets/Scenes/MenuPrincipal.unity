@@ -696,7 +696,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1811477768}
   m_HandleRect: {fileID: 1811477767}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1949773266}
   m_HandleRect: {fileID: 1949773265}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3932,6 +3932,10 @@ PrefabInstance:
     - target: {fileID: 2428258983867424221, guid: 0bf9b1e084d6d454599f84bf499406df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214475924383515435, guid: 0bf9b1e084d6d454599f84bf499406df, type: 3}
+      propertyPath: levelScenes.Array.size
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
