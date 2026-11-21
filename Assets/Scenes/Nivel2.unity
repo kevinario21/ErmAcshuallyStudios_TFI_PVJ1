@@ -11843,7 +11843,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11927,7 +11927,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1087082799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5bcd0968c658af46bba4f98735a772d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2973bfb0f24bac248826a8e41a92769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 1782616866}

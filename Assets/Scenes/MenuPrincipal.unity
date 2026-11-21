@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7011f55d13cac84589021f361562b10, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AchievementsListUI
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementListUI
   container: {fileID: 1523161063}
   itemPrefab: {fileID: 1765133750712811069, guid: 9d6963c8aedc4c248b8f7260a97172b5, type: 3}
 --- !u!1 &394404580

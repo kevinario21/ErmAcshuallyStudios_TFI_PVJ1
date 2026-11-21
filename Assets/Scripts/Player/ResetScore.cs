@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ResetScoreOnStart : MonoBehaviour
+public class ResetScore : MonoBehaviour
 {
     [SerializeField] private ScoreDataSO scoreData;
 

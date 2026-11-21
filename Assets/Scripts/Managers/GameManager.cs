@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string victoryScene = "Victory";
     [SerializeField] private string defeatScene = "Defeat";
     [SerializeField] private string startScene = "Nivel1";          // cambiar a "Tutorial" si arranca por ahí
-    [SerializeField] private string[] levelScenes = { "Tutorial", "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
+    [SerializeField] private string[] levelScenes = { "Tutorial", "Nivel1", "Nivel2", "Nivel3" };
 
     [SerializeField] private float delayAfterBoss = 3f; // tiempo para ver la notificación de logro
 

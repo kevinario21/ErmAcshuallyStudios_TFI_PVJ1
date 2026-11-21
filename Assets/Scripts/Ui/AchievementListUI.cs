@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// Panel de logros del Menú Principal. 'itemPrefab' tiene: Image "Icon", TMP_Text "Title", TMP_Text "Status".
-public class AchievementsListUI : MonoBehaviour
+public class AchievementListUI : MonoBehaviour
 {
     [SerializeField] private Transform container;
     [SerializeField] private GameObject itemPrefab;

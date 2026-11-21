@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonSound : MonoBehaviour, IPointerDownHandler
+public class ButtonSFX : MonoBehaviour, IPointerDownHandler
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        AudioManager.Instance.PlayButtonClick();
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClick();
+        }
     }
 }

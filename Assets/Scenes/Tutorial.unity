@@ -5673,7 +5673,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 903826681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9023d98145f99a84e8fd550380b529be, type: 3}
+  m_Script: {fileID: 11500000, guid: f9196e32d0171cd4f82b4445b4aaf89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!4 &903826683
@@ -30696,7 +30696,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465827445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4954473eec924364c89af46edd8dbbe9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b98e33552f8ed7469308780b54cf088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!114 &1465827452
@@ -30708,7 +30708,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465827445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 830a582d5ce6083449008beb7956c59d, type: 3}
+  m_Script: {fileID: 11500000, guid: a704c5e37eae38943b90926c8d75c5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
 --- !u!1 &1479933661

@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Método que llama SlimeAI al atacar al jugador
+    private PlayerStats playerStats;
+
+    private void Awake()
+    {
+        playerStats = GetComponent<PlayerStats>();
+    }
+
+    // Llamado por SlimeAI y HongoPatrulla al atacar al jugador
     public void RecibirDano(int cantidad)
     {
-        Debug.Log("El jugador recibió daño: " + cantidad);
+        if (playerStats != null)
+            playerStats.TakeDamage(cantidad);
     }
 }

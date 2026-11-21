@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 376dcb13b093e3541bf9baa0aed2cc20, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResetScoreOnStart
+  m_EditorClassIdentifier: Assembly-CSharp::ResetScore
   scoreData: {fileID: 11400000, guid: 3eb3b77360389564abf9ff76831eccd6, type: 2}
 --- !u!4 &6204086
 Transform:
@@ -1109,9 +1109,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 756981559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5bcd0968c658af46bba4f98735a772d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2973bfb0f24bac248826a8e41a92769d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowTest
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 588326908}
   smoothSpeed: 5
   offset: {x: 0, y: 1, z: -10}
