@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentState { get; private set; } = GameState.Start;
     private string lastLevelPlayed;
+    private Coroutine pendingTransition;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (Instance != this) return;
         GameEvents.OnTutorialCompleted += HandleTutorialCompleted;
         SceneManager.sceneLoaded += HandleSceneLoaded;
         GameEvents.OnBossDefeated += HandleBossDefeated;
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour
     // El estado se deduce de la escena cargada
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (pendingTransition != null) StopCoroutine(pendingTransition);
+        pendingTransition = null;
         string n = scene.name;
         if (n == victoryScene) SetState(GameState.Victory);
         else if (n == defeatScene) SetState(GameState.GameOver);
@@ -76,11 +80,11 @@ public class GameManager : MonoBehaviour
     // ---------- Flujo de escenas ----------
     public void LoadNextLevel()
     {
-    int i = Array.IndexOf(levelScenes, SceneManager.GetActiveScene().name);
-    if (i >= 0 && i + 1 < levelScenes.Length) LoadScene(levelScenes[i + 1]);
-    else LoadScene(victoryScene);
+        int i = Array.IndexOf(levelScenes, SceneManager.GetActiveScene().name);
+        if (i >= 0 && i + 1 < levelScenes.Length) LoadScene(levelScenes[i + 1]);
+        else LoadScene(victoryScene);
     }
-      
+
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1f;
@@ -107,7 +111,19 @@ public class GameManager : MonoBehaviour
     }
 
     // ---------- Reacciones a eventos ----------
-    private void HandleBossDefeated(string bossId) => StartCoroutine(AfterBossRoutine());
+    private void HandleBossDefeated(string bossId)
+    {
+        // Achievements fire for every boss; progression waits until the arena is clear.
+        foreach (BossHealth boss in FindObjectsByType<BossHealth>())
+            if (!boss.IsDead) return;
+        QueueTransition();
+    }
+
+    private void QueueTransition()
+    {
+        if (pendingTransition == null && CurrentState == GameState.Playing)
+            pendingTransition = StartCoroutine(AfterBossRoutine());
+    }
 
     private IEnumerator AfterBossRoutine()
     {
@@ -119,5 +135,5 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandlePlayerDied() => LoadScene(defeatScene);
-    private void HandleTutorialCompleted() => StartCoroutine(AfterBossRoutine());
+    private void HandleTutorialCompleted() => QueueTransition();
 }

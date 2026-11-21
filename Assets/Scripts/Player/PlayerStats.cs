@@ -9,6 +9,15 @@ public class PlayerStats : MonoBehaviour
 
     private int currentHealth;
     private int currentLives;
+    [SerializeField] private float damageCooldown = 1f;
+    private float nextDamageTime;
+
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+        currentLives = livesCount;
+        Checkpoint = transform.position;
+    }
 
     public float SpeedPlatform => speedPlatform;
     public int MaxHealth => maxHealth;
@@ -30,11 +39,24 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (currentHealth <= 0) return;
+        ApplyDamage(amount, false);
+    }
+
+    public void TakeBossDamage(int amount)
+    {
+        ApplyDamage(amount, true);
+    }
+
+    private void ApplyDamage(int amount, bool fromBoss)
+    {
+        if (currentHealth <= 0 || amount <= 0 || Time.time < nextDamageTime) return;
+        nextDamageTime = Time.time + damageCooldown;
 
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
         GameEvents.RaisePlayerDamaged();
+        // Only damage that actually removes health invalidates the achievement.
+        if (fromBoss) GameEvents.RaisePlayerDamagedByBoss();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
@@ -59,6 +81,8 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
             transform.position = Checkpoint;
+            var body = GetComponent<Rigidbody2D>();
+            if (body != null) body.linearVelocity = Vector2.zero;
 
             // Pequeña invulnerabilidad (opcional, via animación si existe)
             var anim = GetComponent<Animator>();

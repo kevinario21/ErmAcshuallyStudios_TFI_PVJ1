@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2958249214390307408}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   speedPlatform: 8
   maxHealth: 5
+  livesCount: 3
 --- !u!114 &7766315121178422037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   groundCheckRadius: 0.25
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   jumpForce: 8
 --- !u!114 &2958249214390307408
 MonoBehaviour:
