@@ -242,7 +242,7 @@ MonoBehaviour:
   groundCheckRadius: 0.25
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   jumpForce: 8
 --- !u!114 &2958249214390307408
 MonoBehaviour:
