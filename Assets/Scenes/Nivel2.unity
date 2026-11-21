@@ -13177,6 +13177,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1905806992240226925, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7766315121178422037, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
