@@ -39,6 +39,7 @@ public class ScoreDataSO : ScriptableObject
 
     public void AddPoints(int points)
     {
+   
         if (points <= 0) return;
 
         if (!isLoaded)

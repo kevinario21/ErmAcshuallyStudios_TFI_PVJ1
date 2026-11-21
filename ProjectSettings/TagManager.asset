@@ -3,19 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-<<<<<<< HEAD
   tags:
-  - Ground
   - Enemy
-=======
-<<<<<<< HEAD
-  tags: []
-=======
-  tags:
   - Ground
-  - Enemy
->>>>>>> origin/main
->>>>>>> origin/main
   layers:
   - Default
   - TransparentFX
