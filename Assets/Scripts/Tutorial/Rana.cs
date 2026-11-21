@@ -117,11 +117,11 @@ public class Rana : MonoBehaviour
                 break;
 
             case TipoTutorial.Agacharse:
-                mensajeElegido = "Mantén presionado ABAJO para agacharte. Por aqui suelen aparecer slimes";
+                mensajeElegido = " Por aqui suelen aparecer slimes, que no te toquen, ¡son inmunes a la magia!.";
                 break;
 
             case TipoTutorial.Golpear:
-                mensajeElegido = "Pulsa Z para dar un golpe.";
+                mensajeElegido = "Pulsa J para dar un golpe.";
                 break;
 
             case TipoTutorial.Trepar:

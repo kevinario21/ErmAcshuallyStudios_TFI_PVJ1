@@ -11264,8 +11264,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1267073894}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: rangoAtaque
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4.08
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -11935,7 +11939,7 @@ PrefabInstance:
       objectReference: {fileID: 641437435}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -12094,7 +12098,7 @@ PrefabInstance:
       objectReference: {fileID: 426775104}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -13818,7 +13822,7 @@ PrefabInstance:
       objectReference: {fileID: 1502965811}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -13999,8 +14003,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1210886758}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: rangoAtaque
+      value: 3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: cooldownAtaque
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
