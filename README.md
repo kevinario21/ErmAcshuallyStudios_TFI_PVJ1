@@ -10,13 +10,13 @@
 
 ## Desarrolladoras
 
-| Nombre y Apellido | Usuario de GitHub | Rama |
+| Nombre y Apellido | Usuario de GitHub | LU |
 |---|---|---|
-| Gianella Gutierrez | _AlezzzGutierrez_ | `gianellaGutierrez` |
-| Florencia Itati Quispe | _kevinario21_ | `QuispeFlorenciaItati` |
-| Sara Barbara Miranda | _Miranda Sara_ | `MirandaSaraBarbara` |
-| Estefani Mamaní | _Yohaneaaa_ | `EstefaniMamani` |
-| Esmeralda González Tolay | _Lil_Esme_ | `Esmeralda-Gonzalez` |
+| Gianella Gutierrez | _AlezzzGutierrez_ | `TUV000800` |
+| Florencia Itati Quispe | _kevinario21_ | `TUV000805` |
+| Sara Barbara Miranda | _Miranda Sara_ | `TUV000749` |
+| Estefani Mamaní | _Yohaneaaa_ | `TUV000820` |
+| Esmeralda González Tolay | _Lil_Esme_ | `Tuv000821` |
 
 ## Descripción del juego
 
