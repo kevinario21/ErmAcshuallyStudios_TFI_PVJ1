@@ -20,20 +20,20 @@
 
 ## Descripción del juego
 
-Plataformas 2D de desplazamiento lateral. **Midnight**, una gata, atraviesa un recorrido de niveles conectados entre sí, esquiva o elimina enemigos, junta monedas y llega hasta un jefe final. Al derrotarlo, la gata **recupera su forma humana**.
+Plataformas 2D de desplazamiento lateral. **Midnight**, una gata, atraviesa un recorrido de niveles conectados entre sí, esquiva o elimina enemigos, junta monedas, escala paredes y llega hasta los jefes finales. Al derrotarlos, la gata **recupera su forma humana**.
 
 La partida se divide en cuatro escenas jugables:
 
-1. **Tutorial:** una rana guía aparece al entrar en ciertas zonas y explica los controles con un globo de texto que se escribe letra por letra. Al terminar, el jugador pasa al primer nivel.
+1. **Tutorial:** una rana guía aparece con efectos visuales al entrar en ciertas zonas y explica, con un globo de texto que se escribe letra por letra, cómo saltar, qué hacer ante los slimes, cómo golpear, cómo trepar y cómo se divide el mapa. Al llegar al final, el jugador pasa al primer nivel.
 2. **Nivel 1:** nivel de plataformas con **hongos** que patrullan, **monedas** que suman puntaje y un **portal** que lleva al nivel siguiente. Incluye una división del mapa para elegir camino.
-3. **Nivel 2 (subterráneo):** diseñado para aprovechar el sigilo. Hay **slimes** (con IA de estados) y **hongos** que patrullan. Termina en un punto de salida con trigger.
-4. **Nivel 3 (superficie):** zona del **jefe final**. Al entrar en su arena se cierran las barreras, aparece la barra de vida del jefe y comienza el combate.
+3. **Nivel 2 (subterráneo):** diseñado para aprovechar el sigilo. Hay **slimes** que corren hacia el jugador cuando lo detectan y **hongos** que patrullan. Un portal lleva al nivel final.
+4. **Nivel 3 (superficie):** arenas de jefe. Al entrar en una arena se cierran las barreras, aparece la barra de vida del jefe y comienza el combate. Hay un **Guardián** y el **Rey Slime** (jefe final). La partida solo avanza cuando no queda ningún jefe vivo.
 
-**Objetivo:** llegar al final de los niveles y vencer al jefe sin quedarte sin vidas.
+**Objetivo:** llegar al final de los niveles y vencer a los jefes sin quedarte sin vidas.
 
-**Peligros:** slimes que persiguen y atacan, hongos que dañan al contacto y proyectiles del jefe.
+**Peligros:** slimes que persiguen y dañan al contacto, hongos que dañan al contacto, proyectiles y contacto con los jefes, y zonas de caída que devuelven al jugador al inicio.
 
-**Ayudas:** monedas, checkpoint de reaparición, ataque a distancia y logros desbloqueables.
+**Ayudas:** monedas, checkpoint de reaparición, ataque a distancia, escalada y logros desbloqueables.
 
 ### Flujo de escenas
 
@@ -49,41 +49,50 @@ Menú Principal ──► Tutorial ──► Nivel 1 ──► Nivel 2 ──►
 | Tecla | Acción |
 |---|---|
 | **A / D** o **← / →** | Mover a Midnight |
-| **Espacio** | Saltar (solo si está apoyada en el suelo) |
+| **Espacio** | Saltar (solo si está apoyada en el suelo; con una pausa breve entre saltos) |
+| **W** o **↑** (junto a una pared) | Escalar. Dura hasta 1,5 s y se recupera al tocar el suelo |
 | **J** | Disparar un proyectil (cooldown de 0,25 s) |
 | **ESC** | Pausar y continuar |
 | **Mouse** | Navegar menús, opciones y logros |
 
 ## Distribución de roles y ramas
 
-Cada integrante trabajó en su propia rama y se integró a `main` mediante Pull Requests.
+Cada integrante trabajó en su propia rama. Además se usó una rama de integración, `Devmain`, que se fue incorporando a `main` mediante Pull Requests.
 
 | Integrante | Rol | Scripts / recursos |
 |---|---|---|
-| Gianella Gutierrez | **Tutorial:** diseño del nivel y rana tutora con globos de texto | `Rana`, `ZonaTutorial`, `TipoTutorial` (enum), paleta de tilemaps, escena `Tutorial` |
-| Florencia Itati Quispe | **Nivel 1:** físicas de Midnight, cámara, ataque a distancia, enemigos, monedas y puntaje | `PlayerMovement`, `PlayerStats`, `PlayerHealth`, `PlayerAnimation`, `CameraFollow`, `Shooting`, `Projectile`, `CoinPickup`, `ScoreDataSO`, `PortalNivel`, escena `Nivel1` |
-| Sara Barbara Miranda | **Nivel 2 e IA enemiga:** nivel subterráneo, slimes con máquina de estados y hongos patrulleros | `SlimeAI`, `HongoPatrulla`, `EnemyHealth`, prefabs `Slime` y `Hongo`, escena `Nivel2` |
-| Estefani Mamaní | **Nivel 3 y jefe:** superficie, jefe con patrones de disparo, arena y transformación a forma humana | `BossHealth`, `BossShooter`, `BossProjectile`, `BossArena`, `PlayerHumanForm`, prefab `BossFireball`, escena `Nivel3` |
-| Esmeralda González Tolay | **Managers y UI:** menú principal, pausa, victoria/derrota, GameManager, AudioManager y logros | `GameManager`, `AudioManager`, `AchievementManager`, `GameEvents`, `MainMenuUI`, `PauseMenuUI`, `EndScreenUI`, `VolumeSettingsUI`, `AchievementListUI`, `AchievementNotificationUI`, `PlayerHealthUI`, `ScoreUI`, `ButtonSFX` |
+| Gianella Gutierrez | **Tutorial, jugador y HUD:** nivel tutorial con rana guía y VFX, escalada de paredes, HUD de vida y vidas, teletransporte al inicio y nueva lógica del slime | `Rana`, `RanaVFXController`, `ZonaTutorial`, `TeletransporteInicio`, `HUDVidaPlayer` (clase `PlayerHealthUI`), `SlimePerseguidor`, prefab `Teleport`, paleta de tilemaps, escena `Tutorial` |
+| Florencia Itati Quispe | **Nivel 1:** físicas de Midnight, cámara, ataque a distancia, enemigos, monedas y puntaje | `PlayerMovement`, `PlayerStats`, `PlayerAnimation`, `CameraFollow`, `Shooting`, `Projectile`, `CoinPickup`, `ScoreDataSO`, `PortalNivel`, escena `Nivel1` |
+| Sara Barbara Miranda | **Nivel 2 y enemigos:** nivel subterráneo, hongos patrulleros y slimes | `HongoPatrulla`, `EnemyHealth`, prefabs `Slime` y `Hongo`, escena `Nivel2` |
+| Estefani Mamaní | **Nivel 3 y jefes:** superficie, jefes con patrones de disparo, arenas y transformación a forma humana | `BossHealth`, `BossShooter`, `BossProjectile`, `BossArena`, `PlayerHumanForm`, prefab `BossFireball`, escena `Nivel3` |
+| Esmeralda González Tolay | **Managers y UI:** menú principal, pausa, victoria/derrota, GameManager, AudioManager y logros | `GameManager`, `AudioManager`, `AchievementManager`, `GameEvents`, `MainMenuUI`, `PauseMenuUI`, `EndScreenUI`, `VolumeSettingsUI`, `AchievementListUI`, `AchievementNotificationUI`, `ScoreUI`, `ButtonSFX` |
 
 ## Detalle de los sistemas
 
 ### Jugador
 
-- **Movimiento:** `Rigidbody2D` con velocidad horizontal y salto. El chequeo de suelo usa `Physics2D.OverlapCircle` filtrado por `LayerMask`.
-- **Estadísticas** (`PlayerStats`, editables desde el Inspector): velocidad `8`, vida máxima `5` y `3` vidas. Al llegar a 0 de vida se pierde una vida y se reaparece en el último checkpoint con la vida completa. Sin vidas, se carga la escena de Derrota.
+- **Movimiento:** `Rigidbody2D` con velocidad horizontal y salto. El chequeo de suelo usa `Physics2D.OverlapCircleAll` filtrado por `LayerMask` e ignora triggers y el propio collider.
+- **Escalada:** un `wallCheck` detecta paredes en la dirección en que mira el sprite. Mientras se escala, la gravedad se anula y el movimiento vertical usa `climbSpeed`. El tiempo máximo (`maxClimbTime`) se reinicia al volver al suelo.
+- **Estadísticas** (`PlayerStats`, editables desde el Inspector): velocidad `8`, vida máxima `5`, `3` vidas y `1 s` de invulnerabilidad tras recibir un golpe. Al llegar a 0 de vida se pierde una vida y se reaparece en el último checkpoint con la vida completa. Sin vidas, se carga la escena de Derrota.
 - **Disparo:** el proyectil sale del `firePoint` en la dirección en que mira el sprite, vuela 3 s como máximo y se destruye al chocar con suelo, pared o enemigo.
-- **Forma humana:** al derrotar al jefe final, `PlayerHumanForm` cambia el sprite o el controlador de animación de la gata.
+- **Teletransporte al inicio:** `TeletransporteInicio` es un trigger que lleva al jugador a un punto de inicio y le anula la velocidad. Se usa como zona de caída.
+- **Forma humana:** al derrotar a un jefe, `PlayerHumanForm` cambia el sprite o el controlador de animación de la gata.
+- **HUD de vida:** `PlayerHealthUI` (archivo `HUDVidaPlayer.cs`) muestra una barra de vida, el texto `vida / máximo` y el contador de vidas, escuchando los eventos de `PlayerStats`.
 
 ### Enemigos
 
 | Enemigo | Comportamiento | Valores por defecto |
 |---|---|---|
-| **Slime** | Máquina de estados: *Patrulla → Persecución → Ataque*. Si el jugador está agachado, su rango de visión se reduce | Visión 6 (2 agachado), ataque a 1, cooldown 1,5 s, daño 1, velocidad 1,5 patrulla / 3 persecución |
-| **Hongo** | Patrulla entre dos puntos y daña al contacto | Velocidad 1, daño 1, cooldown 1 s |
-| **Jefe** | Dispara ráfagas por **arriba, abajo o alternado** (nunca repite el patrón anterior) con aviso en amarillo antes de disparar. Con la mitad de vida entra en **furia**: más disparos, más rápidos y con menos pausa | 10 de vida, 3 disparos por ráfaga, daño 1 |
+| **Slime** (`SlimePerseguidor`) | Patrulla entre dos puntos (o espera quieto si no hay puntos). Si el jugador entra en su rango horizontal y a una altura cercana, **corre hacia él**. Daña al contacto | Detección 7, margen de altura 2,5, velocidad 1,5 patrulla / 4 al correr, daño 1, cooldown 1,2 s |
+| **Hongo** | Patrulla entre dos puntos y daña al contacto. Se elimina con los proyectiles del jugador | Velocidad 1, daño 1, cooldown 1 s, 3 de vida |
+| **Jefes** | Disparan ráfagas por **arriba, abajo o alternado** (nunca repiten el patrón anterior) con un aviso en amarillo antes de disparar. Con la mitad de vida entran en **furia**: más disparos, más rápidos y con menos pausa. Dañan también por contacto | Vida configurable desde el Inspector, ráfagas de 3 disparos (4 en el jefe final), daño 1 |
 
-Los enemigos genéricos usan `EnemyHealth` (3 de vida por defecto, con destello al recibir daño). El jefe usa `BossHealth` y avisa su muerte con `GameEvents.RaiseBossDefeated`.
+Los enemigos comunes usan `EnemyHealth` (3 de vida por defecto, con destello al recibir daño). Los jefes usan `BossHealth`, que avisa su muerte con `GameEvents.RaiseBossDefeated`.
+
+| Jefe | Id | Tipo |
+|---|---|---|
+| Guardián | `boss_nivel3` | Intermedio |
+| Rey Slime | `boss_nivel5` | Jefe final |
 
 ### GameManager y estados
 
@@ -95,21 +104,26 @@ public enum GameState { Start, Playing, Paused, Victory, GameOver }
 
 - El estado se deduce de la escena cargada (menú, nivel, victoria o derrota).
 - La pausa congela el juego con `Time.timeScale = 0` y notifica a la UI y al audio mediante el evento `OnGameStateChanged`.
-- Al derrotar al jefe, o al completar el tutorial, espera 3 s (para ver el logro) y carga el siguiente nivel o la pantalla de Victoria.
+- Al completar el tutorial o vencer a los jefes, espera 3 s (para ver el logro) y carga la escena siguiente. Si hay varios jefes en la escena, solo avanza cuando ya no queda ninguno vivo. Después del último nivel carga la pantalla de Victoria.
+- Desde Derrota se puede reintentar el último nivel jugado.
 
 ### Eventos (patrón Observador)
 
-`GameEvents` es un bus estático de eventos compartido por todo el equipo: `OnTutorialCompleted`, `OnBossDefeated(string)`, `OnPlayerDamaged` y `OnPlayerDied`. Así, `GameManager`, `AchievementManager`, `AudioManager` y `PlayerHumanForm` reaccionan sin conocerse entre sí.
+`GameEvents` es un bus estático de eventos compartido por todo el equipo: `OnTutorialCompleted`, `OnBossDefeated(string)`, `OnPlayerDamaged`, `OnPlayerDamagedByBoss` y `OnPlayerDied`. Así, `GameManager`, `AchievementManager`, `AudioManager` y `PlayerHumanForm` reaccionan sin conocerse entre sí.
 
 ### Persistencia de datos
 
-- **Puntaje:** `ScoreDataSO` (ScriptableObject) lo guarda en `PlayerPrefs` y lo conserva entre niveles. `ScoreUI` lo muestra en pantalla con TextMeshPro.
+- **Puntaje:** `ScoreDataSO` (ScriptableObject) lo guarda en `PlayerPrefs` y lo conserva entre niveles. Se reinicia al empezar el Nivel 1.
 - **Volumen y logros:** también se guardan en `PlayerPrefs`.
-- **Vida y vidas:** `PlayerStats` notifica cambios por eventos (`OnHealthChanged`, `OnLivesChanged`) que escucha `PlayerHealthUI`.
+- **Vida y vidas:** `PlayerStats` notifica cambios por eventos (`OnHealthChanged`, `OnLivesChanged`) que escucha el HUD.
 
 ### Audio
 
 `AudioManager` controla un `AudioMixer` con tres parámetros (`MasterVol`, `MusicVol`, `SFXVol`), ajustables con sliders desde el menú principal y desde la pausa. La música cambia según el estado del juego (menú, nivel, pausa, jefe, victoria, derrota). Hay efectos para salto, disparo, moneda, enemigo, power-up, disparo del jefe, botones y logros.
+
+### Rana guía del tutorial
+
+`Rana` se invoca desde cinco `ZonaTutorial` (cada una con su tema del enum `TipoTutorial`: saltar, slimes, golpear, trepar y mapa). Al aparecer reproduce tres efectos visuales: uno de aparición, uno en loop mientras está presente y uno de desaparición que sigue corriendo aunque la rana ya se haya ido. El mensaje se escribe letra por letra.
 
 ### Sistema de logros
 
@@ -118,8 +132,8 @@ Los logros son ScriptableObjects (`AchievementData`) en `Assets/Logros`, se desb
 | Logro | Condición |
 |---|---|
 | **Pasaste Tutorial** | Completar el tutorial |
-| **Inmune** | Vencer al jefe sin recibir daño en ese nivel |
-| **Derrota al Rey Slime** | Vencer al jefe del nivel 4 (`boss_nivel4`) |
+| **Inmune** | Vencer a un jefe sin recibir daño en ese nivel |
+| **Derrota al Rey Slime** | Vencer al Rey Slime |
 
 ### ScriptableObjects
 
@@ -142,7 +156,7 @@ Los logros son ScriptableObjects (`AchievementData`) en `Assets/Logros`, se desb
 ### Nivel 2 · Subterráneo
 ![Nivel 2](./Screenshots/Nivel2.jpeg)
 
-### Nivel 3 · Jefe final
+### Nivel 3 · Jefes
 ![Nivel 3](./Screenshots/Nivel3.jpeg)
 
 ### Pausa y opciones de volumen
@@ -170,8 +184,8 @@ Las escenas deben estar en *File > Build Settings* en este orden: `MenuPrincipal
 ## Flujo de trabajo en Git
 
 - Repositorio público con `.gitignore` de Unity (se excluyen `Library/`, `Temp/`, `Logs/`, etc.).
-- Una rama personal por integrante.
-- Integración a `main` mediante **Pull Requests** y resolución de conflictos de merge.
+- Una rama personal por integrante, más una rama de integración (`Devmain`).
+- Más de 100 commits descriptivos y integración a `main` mediante **Pull Requests**, con resolución de conflictos de merge.
 - La evidencia del trabajo en paralelo se puede ver en *Insights > Network* del repositorio.
 
 ## Estructura del proyecto
@@ -184,21 +198,18 @@ Assets/
   BoldVFXPackDemo/   Efectos de partículas
   Images/            Fondos, botones, íconos y título
   Logros/            ScriptableObjects de logros
-  Prefabs/           Player, Slime, Hongo, Projectile, BossFireball, Coin, managers y UI
+  Prefabs/           Player, Slime, Hongo, Projectile, BossFireball, Coin, Teleport, managers y UI
   Scenes/            MenuPrincipal, Tutorial, Nivel1, Nivel2, Nivel3, Victory, Defeat
   ScriptableObjects/ ScoreData y ScoreDataSO
   Scripts/
-    Enemy/           SlimeAI, HongoPatrulla, EnemyHealth, Boss*
+    Enemy/           SlimePerseguidor, HongoPatrulla, EnemyHealth, Boss*
     Managers/        GameManager, AudioManager, AchievementManager, PortalNivel
-    Player/          Movimiento, estadísticas, disparo, cámara, monedas
-    Tutorial/        Rana, ZonaTutorial
-    Ui/              Menús, HUD, logros, GameEvents
+    Player/          Movimiento, estadísticas, disparo, cámara, monedas, HUD de vida, teletransporte
+    Tutorial/        Rana, RanaVFXController, ZonaTutorial
+    Ui/              Menús, logros, GameEvents
   Settings/          Configuración de URP 2D e Input System
-  Sprites/           Jugador, enemigos y fondos con tilemaps
+  Sprites/           Jugador, enemigos y fondos
+  Tiles/             Prefabs y tiles de suelo
 ProjectSettings/
+Screenshots/         Capturas usadas en este README
 ```
-
-## Estado del proyecto y pendientes
-
-- El **Nivel 4** (subterráneo) y el logro *Derrota al Rey Slime* están previstos, pero la escena no está incluida en el repositorio y figura deshabilitada en *Build Settings*.
-- La rana del tutorial menciona agacharse, golpear, trepar y abrir el mapa, pero esas acciones todavía no tienen código de entrada. Hoy el ataque disponible es el disparo con **J**.
