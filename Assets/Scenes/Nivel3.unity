@@ -26415,7 +26415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be8e5f409348b047bb4ba03884a6d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 1
+  maxHealth: 20
   bossName: Rey Slime
   bossId: boss_nivel5
   isFinalBoss: 1
