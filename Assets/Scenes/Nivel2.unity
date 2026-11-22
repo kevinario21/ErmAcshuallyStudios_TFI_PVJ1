@@ -11264,8 +11264,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1267073894}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: rangoAtaque
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4.08
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -11935,7 +11939,7 @@ PrefabInstance:
       objectReference: {fileID: 641437435}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -12094,7 +12098,7 @@ PrefabInstance:
       objectReference: {fileID: 426775104}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -13177,6 +13181,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1905806992240226925, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7766315121178422037, guid: c9a7f604b954e6040b0d9f669cbb17d7, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
@@ -13814,7 +13822,7 @@ PrefabInstance:
       objectReference: {fileID: 1502965811}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado
@@ -13995,8 +14003,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1210886758}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: rangoAtaque
+      value: 3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVision
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
+      propertyPath: cooldownAtaque
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2374587562033855443, guid: f5e082a18ba829e46ad43bf4497ad37a, type: 3}
       propertyPath: rangoVisionAgachado

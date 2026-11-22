@@ -6375,50 +6375,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 734615366565064368, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 734615366565064368, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 734615366565064368, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 734615366565064368, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3794076190985607455, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_fontSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3794076190985607455, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3794076190985607455, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814480773784608970, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814480773784608970, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814480773784608970, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -289.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814480773784608970, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 143.7
-      objectReference: {fileID: 0}
     - target: {fileID: 4370139543833003421, guid: 33507ecae969d344197882d7d9e3f302, type: 3}
       propertyPath: m_Name
       value: Monedas

@@ -207,8 +207,8 @@ MonoBehaviour:
   puntoB: {fileID: 0}
   velPatrulla: 1.5
   velPersecucion: 3
-  rangoVision: 6
+  rangoVision: 4
   rangoVisionAgachado: 2
-  rangoAtaque: 1.5
+  rangoAtaque: 3
   cooldownAtaque: 1.5
-  dano: 1
+  dano: 2
